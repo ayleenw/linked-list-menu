@@ -14,6 +14,8 @@ int main()
 
     mainMenu.PrintMenuList();
 
+    mainMenu.GotoId(2);
+
     cout << "Hallo Lilly!" << endl;
 
     return 0;

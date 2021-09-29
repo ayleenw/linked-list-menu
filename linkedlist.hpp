@@ -1,3 +1,14 @@
+/**
+  ******************************************************************************
+  * @file           : linkedlist.hpp
+  * @brief          : A linked list for holding menu items 
+  ******************************************************************************
+  * @author Ayleen Weiss, 2021-09-29
+  * 
+  *
+  ******************************************************************************
+  */
+
 #ifndef _LINKEDLIST_H_
 #define _LINKEDLIST_H_
 
@@ -20,6 +31,7 @@ public:
     ~LinkedList();
     void AddMenuItem(string text);
     void PrintMenuList();
+    void GotoId(int lookupId);
 
 private:
     int numberOfEntries;

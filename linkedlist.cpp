@@ -39,13 +39,24 @@ void LinkedList::AddMenuItem(string text)
         tail = tmp;
     }
 }
+
 void LinkedList::PrintMenuList()
 {
     menuItem *current = head;
 
     while (current != nullptr)
     {
-        cout << current->menuText << endl;
+        cout << current->id << current->menuText << endl;
         current = current->next;
     }
+}
+
+void LinkedList::GotoId(int lookupId)
+{
+    menuItem *current = head;
+    while (current != nullptr && lookupId != current->id)
+    {
+        current = current->next;
+    }
+    cout << current->id << " : " << current->menuText << endl;
 }
