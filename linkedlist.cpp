@@ -3,11 +3,13 @@
 
 using namespace std;
 
-LinkedList::LinkedList()
+LinkedList::LinkedList(string menuName)
 {
     head = nullptr;
     tail = nullptr;
     numberOfEntries = 0;
+    markerPos = 0;
+    menuHeader = menuName;
 }
 LinkedList::~LinkedList()
 {
@@ -42,21 +44,36 @@ void LinkedList::AddMenuItem(string text)
 
 void LinkedList::PrintMenuList()
 {
+    cout << menuHeader << endl;
+
     menuItem *current = head;
 
     while (current != nullptr)
     {
-        cout << current->id << current->menuText << endl;
+        cout << current->id << ": " << current->menuText << endl;
         current = current->next;
     }
 }
 
-void LinkedList::GotoId(int lookupId)
+menuItem *LinkedList::GotoId(int lookupId)
 {
+    if (lookupId > numberOfEntries)
+        return nullptr;
+
     menuItem *current = head;
     while (current != nullptr && lookupId != current->id)
     {
         current = current->next;
     }
-    cout << current->id << " : " << current->menuText << endl;
+    return current;
+}
+
+void LinkedList::SetMarkerPos(int pos)
+{
+    markerPos = pos;
+}
+
+int LinkedList::GetMarkerPos()
+{
+    return markerPos;
 }

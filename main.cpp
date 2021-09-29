@@ -6,17 +6,12 @@ using namespace std;
 
 int main()
 {
-    LinkedList mainMenu;
-    mainMenu.AddMenuItem("Header");
+    LinkedList mainMenu("Header");
     mainMenu.AddMenuItem("Menu 1");
     mainMenu.AddMenuItem("Menu 2");
     mainMenu.AddMenuItem("Menu 3");
 
     mainMenu.PrintMenuList();
-
-    mainMenu.GotoId(2);
-
-    cout << "Hallo Lilly!" << endl;
 
     return 0;
 }
