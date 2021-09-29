@@ -50,6 +50,14 @@ void LinkedList::PrintMenuList()
 
     while (current != nullptr)
     {
+        if (current->id == markerPos)
+        {
+            current->menuText.insert(0, "> ");
+        }
+        else
+        {
+            current->menuText.insert(0, "  ");
+        }
         cout << current->id << ": " << current->menuText << endl;
         current = current->next;
     }
