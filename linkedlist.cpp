@@ -8,24 +8,22 @@ LinkedList::LinkedList()
     head = nullptr;
     tail = nullptr;
     numberOfEntries = 0;
-    markerPos = 0;
 }
 
-LinkedList::LinkedList(string menuName)
+LinkedList::LinkedList(string _listTitle)
 {
     head = nullptr;
     tail = nullptr;
     numberOfEntries = 0;
-    markerPos = 0;
-    menuHeader = menuName;
+    listTitle = _listTitle;
 }
 
 LinkedList::~LinkedList()
 {
-    menuItem *current = head;
+    Node *current = head;
     while (current != nullptr)
     {
-        menuItem *next = current->next;
+        Node *next = current->next;
         delete current;
         current = next;
     }
@@ -34,15 +32,14 @@ LinkedList::~LinkedList()
 
 void LinkedList::AddMenuHeader(string text)
 {
-    menuHeader = text;
+    listTitle = text;
 }
 
 void LinkedList::AddMenuItem(string text)
 {
-    menuItem *tmp = new menuItem;
-    tmp->menuText = text;
+    Node *tmp = new Node;
+    tmp->itemText = text;
     tmp->id = numberOfEntries++;
-    // numberOfEntries++;
     tmp->next = nullptr;
     if (head == nullptr)
     {
@@ -56,46 +53,52 @@ void LinkedList::AddMenuItem(string text)
     }
 }
 
-void LinkedList::PrintMenuList()
+void LinkedList::PrintList()
 {
-    cout << menuHeader << endl;
+    cout << listTitle << endl;
 
-    menuItem *current = head;
+    Node *current = head;
 
     while (current != nullptr)
     {
-        if (current->id == markerPos)
-        {
-            current->menuText.insert(0, "> ");
-        }
-        else
-        {
-            current->menuText.insert(0, "  ");
-        }
-        cout << current->id << ": " << current->menuText << endl;
+        cout << current->id << ": " << current->itemText << endl;
         current = current->next;
     }
 }
 
-menuItem *LinkedList::GotoId(int lookupId)
+void LinkedList::PrintListWithMarkerFromTo(int start, int end, int marker)
+{
+    cout << listTitle << endl;
+
+    Node *current = GotoId(start);
+
+    int count = 1;
+    while (current != nullptr)
+    {
+        if (count == end)
+            break;
+        if (current->id == marker)
+        {
+            cout << "> " << current->itemText << endl;
+        }
+        else
+        {
+            cout << "  " << current->itemText << endl;
+        }
+        current = current->next;
+        count++;
+    }
+}
+
+Node *LinkedList::GotoId(int lookupId)
 {
     if (lookupId > numberOfEntries)
         return nullptr;
 
-    menuItem *current = head;
+    Node *current = head;
     while (current != nullptr && lookupId != current->id)
     {
         current = current->next;
     }
     return current;
-}
-
-void LinkedList::SetMarkerPos(int pos)
-{
-    markerPos = pos;
-}
-
-int LinkedList::GetMarkerPos()
-{
-    return markerPos;
 }

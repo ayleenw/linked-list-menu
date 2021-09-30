@@ -17,31 +17,29 @@
 
 using namespace std;
 
-struct menuItem
+struct Node
 {
-    string menuText;
+    string itemText;
     int id;
-    menuItem *next;
+    Node *next;
 };
 
 class LinkedList
 {
 public:
     LinkedList();
-    LinkedList(string menuName);
+    LinkedList(string _listTitle);
     ~LinkedList();
     void AddMenuItem(string text);
     void AddMenuHeader(string text);
-    void PrintMenuList();
-    menuItem *GotoId(int lookupId);
-    void SetMarkerPos(int pos);
-    int GetMarkerPos();
+    void PrintList();
+    void PrintListWithMarkerFromTo(int start, int end, int marker);
+    Node *GotoId(int lookupId);
 
 private:
-    string menuHeader;
+    string listTitle;
     int numberOfEntries;
-    int markerPos;
-    menuItem *head;
-    menuItem *tail;
+    Node *head;
+    Node *tail;
 };
 #endif // _LINKEDLIST_H_

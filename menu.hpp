@@ -22,11 +22,14 @@ class Menu
 {
 public:
   Menu();
-  Menu(string menuTexts[]);
+  Menu(string menuTexts[], int size);
   // ~Menu();
-  void PrintMenuToLCD();
+  void PrintMenuToLCD(int start);
+  void SetMarkerPosition(int position);
+  int GetMarkerPosition();
 
 private:
   LinkedList MenuList;
+  int MarkerPosition;
 };
 #endif // _MENU_H_

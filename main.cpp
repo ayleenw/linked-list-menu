@@ -9,11 +9,15 @@ int main()
 {
     string mmenu[] = {"Header", "Menu 1", "Menu 2", "Menu 3", "Menu 4"};
     int numberOfMenuItems = sizeof(mmenu) / sizeof(mmenu[0]);
-    cout << "Main: Number of menu items: " << numberOfMenuItems << endl;
+    // cout << "Main: Number of menu items: " << numberOfMenuItems << endl;
+    cout << endl;
 
-    Menu mainMenu(mmenu);
+    Menu mainMenu(mmenu, numberOfMenuItems);
 
-    mainMenu.PrintMenuToLCD();
+    mainMenu.PrintMenuToLCD(0);
+
+    mainMenu.SetMarkerPosition(1);
+    mainMenu.PrintMenuToLCD(1);
 
     return 0;
 }

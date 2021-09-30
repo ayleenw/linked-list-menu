@@ -2,33 +2,34 @@
 #include "menu.hpp"
 #include <iostream>
 
+#define LINES 4;
+
 using namespace std;
 
-Menu::Menu(string menuTexts[])
+Menu::Menu(string menuTexts[], int size)
 {
-    int numberOfMenuItems = sizeof(menuTexts) / sizeof(menuTexts[0]);
-    cout << "Menu: Number of menu items: " << numberOfMenuItems << endl;
+    MarkerPosition = 0;
 
     MenuList.AddMenuHeader(menuTexts[0]);
-    for (int i = 1; i < 5; i++)
+    for (int i = 1; i < size; i++)
     {
         MenuList.AddMenuItem(menuTexts[i]);
     }
 }
 
-void Menu::PrintMenuToLCD()
+void Menu::PrintMenuToLCD(int start)
 {
-    MenuList.PrintMenuList();
+    int end = start + LINES;
+    MenuList.PrintListWithMarkerFromTo(start, end, MarkerPosition);
 }
 
-/*
-int lookup = 3;
-
-menuItem *test = mainMenu.GotoId(lookup);
-
-if (test == nullptr)
+void Menu::SetMarkerPosition(int position)
 {
-    cout << "No such menu item!" << endl;
+    MarkerPosition = position;
+    // MenuList.SetMarkerPos(position);
 }
-cout << "Menu item no " << lookup << " is: " << test->menuText << endl;
-*/
+
+int Menu::GetMarkerPosition()
+{
+    return MarkerPosition;
+}
