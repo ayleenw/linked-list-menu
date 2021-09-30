@@ -27,9 +27,11 @@ struct menuItem
 class LinkedList
 {
 public:
+    LinkedList();
     LinkedList(string menuName);
     ~LinkedList();
     void AddMenuItem(string text);
+    void AddMenuHeader(string text);
     void PrintMenuList();
     menuItem *GotoId(int lookupId);
     void SetMarkerPos(int pos);

@@ -1,17 +1,19 @@
 #include <string>
 #include <iostream>
 #include "linkedlist.hpp"
+#include "menu.hpp"
 
 using namespace std;
 
 int main()
 {
-    LinkedList mainMenu("Header");
-    mainMenu.AddMenuItem("Menu 1");
-    mainMenu.AddMenuItem("Menu 2");
-    mainMenu.AddMenuItem("Menu 3");
+    string mmenu[] = {"Header", "Menu 1", "Menu 2", "Menu 3", "Menu 4"};
+    int numberOfMenuItems = sizeof(mmenu) / sizeof(mmenu[0]);
+    cout << "Main: Number of menu items: " << numberOfMenuItems << endl;
 
-    mainMenu.PrintMenuList();
+    Menu mainMenu(mmenu);
+
+    mainMenu.PrintMenuToLCD();
 
     return 0;
 }

@@ -3,6 +3,14 @@
 
 using namespace std;
 
+LinkedList::LinkedList()
+{
+    head = nullptr;
+    tail = nullptr;
+    numberOfEntries = 0;
+    markerPos = 0;
+}
+
 LinkedList::LinkedList(string menuName)
 {
     head = nullptr;
@@ -11,6 +19,7 @@ LinkedList::LinkedList(string menuName)
     markerPos = 0;
     menuHeader = menuName;
 }
+
 LinkedList::~LinkedList()
 {
     menuItem *current = head;
@@ -21,6 +30,11 @@ LinkedList::~LinkedList()
         current = next;
     }
     head = nullptr;
+}
+
+void LinkedList::AddMenuHeader(string text)
+{
+    menuHeader = text;
 }
 
 void LinkedList::AddMenuItem(string text)

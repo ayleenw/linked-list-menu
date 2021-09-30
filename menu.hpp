@@ -9,8 +9,8 @@
   ******************************************************************************
   */
 
-#ifndef _GUI_H_
-#define _GUI_H_
+#ifndef _MENU_H_
+#define _MENU_H_
 
 #include <string>
 #include <stdio.h>
@@ -18,13 +18,15 @@
 
 using namespace std;
 
-class Gui
+class Menu
 {
 public:
-    Gui();
-    ~Gui();
-    void PrintMenuToLCD();
+  Menu();
+  Menu(string menuTexts[]);
+  // ~Menu();
+  void PrintMenuToLCD();
 
 private:
+  LinkedList MenuList;
 };
-#endif // _GUI_H_
+#endif // _MENU_H_
