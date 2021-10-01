@@ -4,4 +4,6 @@ This implements a menu to be shown on a LCD display (4 lines by 20 characters), 
 
 It uses a classic linked list and a intermediate menu layer.
 
+This is using char* instead of string, because the latter is not available on STM32F0* controllers.
+
 In this state, menu lines are printed to the console for development and debugging.
