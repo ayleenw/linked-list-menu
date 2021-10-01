@@ -10,7 +10,7 @@ LinkedList::LinkedList()
     numberOfEntries = 0;
 }
 
-LinkedList::LinkedList(string _listTitle)
+LinkedList::LinkedList(char *_listTitle)
 {
     head = nullptr;
     tail = nullptr;
@@ -30,12 +30,12 @@ LinkedList::~LinkedList()
     head = nullptr;
 }
 
-void LinkedList::AddMenuHeader(string text)
+void LinkedList::AddListTitle(const char *text)
 {
     listTitle = text;
 }
 
-void LinkedList::AddMenuItem(string text)
+void LinkedList::AddListItem(const char *text)
 {
     Node *tmp = new Node;
     tmp->itemText = text;

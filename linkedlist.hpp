@@ -12,14 +12,13 @@
 #ifndef _LINKEDLIST_H_
 #define _LINKEDLIST_H_
 
-#include <string>
 #include <stdio.h>
 
 using namespace std;
 
 struct Node
 {
-    string itemText;
+    const char *itemText;
     int id;
     Node *next;
 };
@@ -28,16 +27,16 @@ class LinkedList
 {
 public:
     LinkedList();
-    LinkedList(string _listTitle);
+    LinkedList(char *_listTitle);
     ~LinkedList();
-    void AddMenuItem(string text);
-    void AddMenuHeader(string text);
+    void AddListItem(const char *text);
+    void AddListTitle(const char *text);
     void PrintList();
     void PrintListWithMarkerFromTo(int start, int end, int marker);
     Node *GotoId(int lookupId);
 
 private:
-    string listTitle;
+    const char *listTitle;
     int numberOfEntries;
     Node *head;
     Node *tail;

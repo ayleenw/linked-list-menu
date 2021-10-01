@@ -12,7 +12,6 @@
 #ifndef _MENU_H_
 #define _MENU_H_
 
-#include <string>
 #include <stdio.h>
 #include "linkedlist.hpp"
 
@@ -22,7 +21,7 @@ class Menu
 {
 public:
   Menu();
-  Menu(string menuTexts[], int size);
+  Menu(const char *menuTexts[], int size);
   // ~Menu();
   void PrintMenuToLCD(int start);
   void SetMarkerPosition(int position);

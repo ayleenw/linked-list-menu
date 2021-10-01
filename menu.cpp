@@ -6,14 +6,14 @@
 
 using namespace std;
 
-Menu::Menu(string menuTexts[], int size)
+Menu::Menu(const char *menuTexts[], int size)
 {
     MarkerPosition = 0;
 
-    MenuList.AddMenuHeader(menuTexts[0]);
+    MenuList.AddListTitle(menuTexts[0]);
     for (int i = 1; i < size; i++)
     {
-        MenuList.AddMenuItem(menuTexts[i]);
+        MenuList.AddListItem(menuTexts[i]);
     }
 }
 
